@@ -6,8 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-
-public class JDBCExample2 {
+public class JDBCExample3 {
 	 public static void main(String args[]) {
 	    
 		 // 1단계:DB 연결을 위한 커넥션 인터페이스   
@@ -28,18 +27,19 @@ public class JDBCExample2 {
 	            // 커넥션 객체가 Statement 객체를 생성
 	            stmt = conn.createStatement();
 	            // DML SQL쿼리 실행 후 결과를 저장.
-	            rs = stmt.executeQuery("select jumincd,	pename,	gender,	age from person");
-	            
-	            System.out.println("주민번호   이름   성별   나이");
+	            rs = stmt.executeQuery("Select cname,	address,	phoneno FROM custinfo");
+	            //Select * FROM custinfo;
+	            //Select cname,	address,	phoneno FROM custinfo;
+	            System.out.println(" 이름                  주소                              전화번호");
 	            
 	            while(rs.next()) {
 	            
-	            String jumincd = rs.getString(1);//rs.getString("jumincd");
-	            String pename  = rs.getString(2);//rs.getString("pename");
-	            String gender  = rs.getString(3);//rs.getString("gender");
-	            int age        = rs.getInt(4);//rs.getInt("age");
+	            String cname = rs.getString(1);//rs.getString("jumincd");
+	            String address  = rs.getString(2);//rs.getString("pename");
+	            String phoneno  = rs.getString(3);//rs.getString("gender");
+	            //int age        = rs.getInt(4);//rs.getInt("age");
 	            
-	            System.out.println(jumincd + "---" + pename + "---" + gender + "---" + age);
+	            System.out.println(cname + "---" + address + "---" + phoneno );
 	            }
 	            //4단계: DB연결을 종료한다.
 	            conn.close();

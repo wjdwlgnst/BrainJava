@@ -5,7 +5,7 @@
 	 
 	 // 매개변수 없는 생성자
 	 public Circle() {
-		 radius = 1;
+		 this.radius = 1;
 		 name = "";
 	 }
 	 
